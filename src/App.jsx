@@ -3,7 +3,7 @@ import "./App.css";
 import Person from "./components/person";
 import PersonForm from "./components/PersonForm";
 import Search from "./components/Search";
-import axios from "axios";
+import personService from "./services/persons";
 
 function App() {
   const [persons, setPersons] = useState([]);
@@ -18,9 +18,9 @@ function App() {
   // };
 
   useEffect(() => {
-    axios.get(" http://localhost:3001/persons").then((response) => {
-      setPersons(response.data);
-      setResults(response.data);
+    personService.getAll().then((initialPersons) => {
+      setPersons(initialPersons);
+      setResults(initialPersons);
     });
   }, []);
 
