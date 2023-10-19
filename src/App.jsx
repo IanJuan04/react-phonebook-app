@@ -36,8 +36,15 @@ function App() {
       />
       <h2>Numbers</h2>
       <ul>
-        {results.map((person, index) => (
-          <Person key={index} name={person.name} number={person.number} />
+        {results.map((person) => (
+          <Person
+            key={person.id}
+            person={person}
+            persons={persons}
+            results={results}
+            setPersons={setPersons}
+            setResults={setResults}
+          />
         ))}
       </ul>
     </div>
