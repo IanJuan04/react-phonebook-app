@@ -1,7 +1,7 @@
 import { useState } from "react";
 import personService from "../services/persons";
 
-function PersonForm({ persons, setPersons, setResults }) {
+function PersonForm({ persons, setPersons, setResults, setNotification }) {
   const [newName, setNewName] = useState("");
   const [newNumber, setNewNumber] = useState("");
   const addPerson = (e) => {
@@ -15,6 +15,7 @@ function PersonForm({ persons, setPersons, setResults }) {
     personService.create(newPerson).then((retrurnedPerson) => {
       setPersons(persons.concat(retrurnedPerson));
       setResults(persons.concat(retrurnedPerson));
+      setNotification(`Added ${retrurnedPerson.name}`);
       setNewName("");
       setNewNumber("");
     });

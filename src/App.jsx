@@ -4,10 +4,12 @@ import Person from "./components/person";
 import PersonForm from "./components/PersonForm";
 import Search from "./components/Search";
 import personService from "./services/persons";
+import Notification from "./components/Notification";
 
 function App() {
   const [persons, setPersons] = useState([]);
   const [results, setResults] = useState(persons);
+  const [notification, setNotification] = useState("some notification");
 
   // const fetchPersons = async () => {
   //   const response = await axios.get("http://localhost:3001/persons");
@@ -27,6 +29,7 @@ function App() {
   return (
     <div>
       <h1>Phonebook App</h1>
+      <Notification notification={notification} />
       <Search persons={persons} setResults={setResults} />
       <h2>add a new</h2>
       <PersonForm
@@ -41,9 +44,9 @@ function App() {
             key={person.id}
             person={person}
             persons={persons}
-            results={results}
             setPersons={setPersons}
             setResults={setResults}
+            setNotification={setNotification}
           />
         ))}
       </ul>
