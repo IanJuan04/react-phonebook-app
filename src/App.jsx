@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import "./App.css";
-import Person from "./components/person";
+import Person from "./components/Person";
 import PersonForm from "./components/PersonForm";
 import Search from "./components/Search";
 import personService from "./services/persons";

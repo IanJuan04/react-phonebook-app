@@ -25,14 +25,19 @@ function PersonForm({ persons, setPersons, setResults, setNotification }) {
   const handleNewNumber = (e) => setNewNumber(e.target.value);
 
   return (
-    <form onSubmit={addPerson}>
+    <form
+      className="bg-slate-100 p-8 flex items-center gap-4"
+      onSubmit={addPerson}
+    >
       <div>
         name: <input value={newName} onChange={handleNewName} required />
       </div>
       <div>
         number: <input value={newNumber} onChange={handleNewNumber} required />
       </div>
-      <button type="submit">add</button>
+      <button className="bg-blue-500 p-2 rounded-md" type="submit">
+        add
+      </button>
     </form>
   );
 }
